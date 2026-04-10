@@ -10,7 +10,7 @@ st.set_page_config(
 )
 
 # ── LOAD DATA ─────────────────────────────────────────────────
-@st.cache_data
+@st.cache_data(ttl=0)
 def load_data():
     df = pd.read_excel("ehr_raw_data.xlsx", sheet_name="Raw Visit Data")
     df["Visit_Date"] = pd.to_datetime(df["Visit_Date"])
